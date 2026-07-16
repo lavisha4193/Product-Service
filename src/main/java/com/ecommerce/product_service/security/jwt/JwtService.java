@@ -26,10 +26,7 @@ public class JwtService {
 
     @PostConstruct
     public void init() {
-        // Secret should be Base64 encoded
-        this.secretKey = Keys.hmacShaKeyFor(
-                Decoders.BASE64.decode(secret)
-        );
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
     /**
